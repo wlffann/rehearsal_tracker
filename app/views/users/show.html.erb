@@ -1,0 +1,7 @@
+<h2>Your Account</h2>
+
+<% if @user.image_url %>
+  <%= image_tag(@user.image_url) %>
+<% end %>
+<%= @user.name %>
+
