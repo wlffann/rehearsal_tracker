@@ -5,6 +5,7 @@ class GoogleOauthSessionsController < ApplicationController
     user_info = response.info
     user = User.from_oauth(uid, user_info)
     session[:user_id] = user.id
+    flash[:success] = "Your account was created!"
     redirect_to user_path(user)
   end
 end
