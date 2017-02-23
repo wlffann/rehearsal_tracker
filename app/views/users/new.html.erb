@@ -1,3 +1,4 @@
 <h1>Create an Account</h2>
+<%= link_to "Login with Google", "/auth/google_oauth2" %> 
 
 <%= render partial: 'form', locals: { user: @user, verb: "Create" }  %>
