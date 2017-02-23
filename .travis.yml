@@ -7,7 +7,9 @@ env:
   matrix:
     - TEST_DIRECTORY=spec/models
     - TEST_DIRECTORY=spec/features
-  before_script:
-    - psql -c 'create database travis_ci_test;' -U postgres
-  cache: bundler
-  sudo: false
+before_script:
+  - psql -c 'create database rehearsal_tracker_test;' -U postgres
+script: 
+  - xvfb-run bundle exec rspec $TEST_DIRECTORY
+cache: bundler
+sudo: false
