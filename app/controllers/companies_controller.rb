@@ -11,6 +11,7 @@ class CompaniesController < ApplicationController
   def create
     company = Company.new(company_params)
     if company.save
+      company.company_managers.create(user: current_user)
       flash[:success] = "Your company has been created!"
       redirect_to company_path(company)
     else

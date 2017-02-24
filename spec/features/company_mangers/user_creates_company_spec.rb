@@ -18,5 +18,6 @@ describe 'User creates company' do
     expect(page).to have_content("Your company has been created!")
     expect(page).to have_content("New Company")
     expect(page).to have_content("New York City")
+    expect(Company.last.managers.first).to eq(@user)
   end
 end
