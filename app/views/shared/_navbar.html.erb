@@ -1,7 +1,13 @@
 <nav>
   <ul>
-    <li>RehearsalTracker</li>
-    <li>
-      <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+    <li><h1>RehearsalTracker</h1></li>
+    <li id="right">
+      <% if current_user %>
+        <%= link_to current_user.name, user_path(current_user)  %>
+        <%= image_tag(current_user.image_url, id: 'user_icon' ) %>
+      <% else %>
+        <%= link_to "Login with Google", "/auth/google_oauth2" %>
+      <% end %>
     </li>
+  </ul>
 </nav>
