@@ -3,3 +3,5 @@
 <%= @production.company.name %>
 
 <%= image_tag(@production.logo_url) %>
+
+<%= link_to "Create a new rehearsal", new_company_production_rehearsal_path(@production.company, @production) %>
