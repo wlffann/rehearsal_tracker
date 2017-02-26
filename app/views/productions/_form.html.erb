@@ -1,0 +1,13 @@
+<%= form_for [@company, @production] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :season %>
+  <%= f.text_field :season %>
+
+  <%= f.label :logo_url  %>  
+  <%= f.text_field :logo_url %>
+
+  <%= f.submit %>
+
+<% end %>

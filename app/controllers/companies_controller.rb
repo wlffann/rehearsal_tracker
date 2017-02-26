@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   
   def show
-    @company = Company.find(params[:id])
+    @company = Company.find_by(name: params[:company_name])
   end
   
   def new 
@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
     if company.save
       company.company_managers.create(user: current_user)
       flash[:success] = "Your company has been created!"
-      redirect_to company_path(company)
+      redirect_to company_path(company.name)
     else
       flash[:warning] = "Please fill in all the required fields"
       render :new

@@ -14,7 +14,7 @@ describe 'User creates company' do
     fill_in 'company_logo_url', :with => Faker::Placeholdit.image
     click_on "Create Company"
 
-    expect(current_path).to eq(company_path(Company.last))
+    expect(current_path).to eq(company_path(Company.last.name))
     expect(page).to have_content("Your company has been created!")
     expect(page).to have_content("New Company")
     expect(page).to have_content("New York City")
