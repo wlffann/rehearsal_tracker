@@ -7,4 +7,8 @@ class Company < ApplicationRecord
   def managers
     User.joins(:managements).where('company_managers.company_id = ?', self.id)
   end
+
+  def current_manager(user)
+    managers.include?(user)
+  end
 end

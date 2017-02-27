@@ -4,11 +4,11 @@ describe 'Productions' do
   before do 
     @user = create(:user)
     @company = create(:company)
-    create(:company_manager, company: @company, user: @user)
-    stub_login_user(@user)
   end
 
   it 'they can create a new production' do
+    create(:company_manager, company: @company, user: @user)
+    stub_login_user(@user)
     visit company_path(@company.name)
     click_on "Create a new production"
     fill_in "production_title", :with => "The Music Man"
@@ -22,5 +22,15 @@ describe 'Productions' do
     expect(page).to have_content("Spring 2017")
     expect(page).to have_content(@company.name)
     expect(page).to have_css("img[src*='http://www.weathervaneplayhouse.com/Data/Sites/1/assets/show-images/musicman_color.jpg']")
+  end
+
+  it 'cannot be created by a non-manager' do
+    production = create(:production, company: @company)
+    team = create(:team, production: production)
+    create(:membership, user: @user, team: team)
+    stub_login_user(@user)
+    visit company_path(@company.name)
+    
+    expect(page).to_not have_content("Create a new production")
   end
 end

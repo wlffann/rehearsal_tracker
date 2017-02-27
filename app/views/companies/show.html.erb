@@ -1,4 +1,6 @@
 <h2><%= @company.name %></h2>
 <h4><%= @company.location %></h4>
 
-<%= link_to "Create a new production", new_company_production_path(@company) %>
+<% if @company.current_manager(current_user) %>
+  <%= link_to "Create a new production", new_company_production_path(@company) %>
+<% end %>
