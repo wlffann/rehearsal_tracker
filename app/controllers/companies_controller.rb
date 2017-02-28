@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
-  
+  load_and_authorize_resource
+
   def show
     @company = Company.find_by(name: params[:company_name])
   end

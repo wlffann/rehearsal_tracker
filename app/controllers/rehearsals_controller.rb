@@ -1,5 +1,5 @@
 class RehearsalsController < ApplicationController
-  
+  load_and_authorize_resource params_method: :sanitize_rehearsal 
   def new
     @company = Company.find(params[:company_id])
     @production = @company.productions.where(id: params[:production_id]).first
@@ -18,8 +18,9 @@ class RehearsalsController < ApplicationController
       render :new
     end
   end
-
-  def rehearsal_params
+  
+  private
+  def sanitize_rehearsal
     params.require('rehearsal').permit('date', 'location', 'description')
   end
 end

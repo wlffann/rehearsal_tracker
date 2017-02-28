@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController 
-  
+ load_and_authorize_resource  
  def new
    @company = Company.find(params[:company_id])
    @production = @company.productions.find(params[:production_id])

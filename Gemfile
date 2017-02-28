@@ -32,7 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "omniauth-google-oauth2"
 gem "figaro"
 gem "httparty"
-
+gem 'cancancan'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development 
 

@@ -4,4 +4,6 @@ class Rehearsal < ApplicationRecord
 
   validates :location, presence: true
   validates :date, presence: true
+
+  scope :where_manager, ->(user_id) { joins(production: :company_managers).where('company_managers.user_id = ?', user_id) }
 end

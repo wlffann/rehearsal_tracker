@@ -8,7 +8,7 @@
   <%= team.name %>
 <% end %>
 
-<% if @production.company.current_manager(current_user) %>
+<% if can? :update, @production %> 
   <%= link_to "Create a new team", new_company_production_team_path(@production.company, @production) %>
   <%= link_to "Create a new rehearsal", new_company_production_rehearsal_path(@production.company, @production) %>
 <% end %>

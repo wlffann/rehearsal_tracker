@@ -1,5 +1,5 @@
 class ProductionsController < ApplicationController
-
+  load_and_authorize_resource
   def new
     @company = Company.find(params[:company_id])
     @production = Production.new

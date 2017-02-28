@@ -4,11 +4,11 @@ class Company < ApplicationRecord
   
   validates :name, presence: true, uniqueness: true
 
+  scope :where_manager, ->(user_id) { joins(:company_managers).where('company_managers.user_id = ?', user_id) }
+  scope :where_member, ->(user_id) { joins(productions: :memberships).where('memberships.user_id = ?', user_id) }
+
   def managers
     User.joins(:managements).where('company_managers.company_id = ?', self.id)
   end
 
-  def current_manager(user)
-    managers.include?(user)
-  end
 end

@@ -5,4 +5,6 @@ class Team < ApplicationRecord
   has_many :notes
 
   validates :name, presence: true
+
+  scope :where_manager, ->(user_id) { joins(production: :company_managers).where('company_managers.user_id = ?', user_id) }
 end
