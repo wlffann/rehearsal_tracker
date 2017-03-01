@@ -4,9 +4,18 @@
     <h2><%= @rehearsal.production.title %></h2>
     <h4><%= @rehearsal.date %></h4>
     <h5><%= @rehearsal.location %></h5>
-    <p><%= @rehearsal.description %><p>
-  
-    <div class='teal-button'>New Note</div>
+    
+    <% if @rehearsal.description %>
+      <p><%= @rehearsal.description %></p>
+      <button class='red-button' id='description'>Update Description</button>
+    <% else %>
+      <button class='red-button' id='description'>Add Description</button>
+    <% end %>
+    <button class='teal-button' id='note'>New Note</button>
+    <%= form_tag("/api/v1/rehearsals/#{@rehearsal.id}", method: 'patch', class: 'description-form') do %>
+      <%= text_area_tag 'rehearsal[description]', @rehearsal.description %>
+      <%= submit_tag "Update Rehearsal" %>
+    <% end %>
   </div>
 
   <section class='notes-column'>

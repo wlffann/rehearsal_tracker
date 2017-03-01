@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/auth/google_oauth2/callback', to: 'google_oauth_sessions#create'
   
+  namespace :api do
+    namespace :v1 do
+      resources :rehearsals, only: [:update]
+    end
+  end
+  
   resources :users, only: [:show, :new, :create]
   
   resources :companies, only: [:new, :create] do
@@ -13,6 +19,7 @@ Rails.application.routes.draw do
 
   namespace :company, path: ':company_name' do
     get '/:production_title/:id', to: 'rehearsals#show', as: 'production_rehearsal'
+    patch '/:prouction_title/:id', to: 'rehearsals#update', as: 'production_rehearsal_update'
     get '/:production_title', to: 'productions#show', as: 'production'
   end
   

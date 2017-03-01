@@ -14,13 +14,23 @@ describe 'Rehearsals' do
     click_on 'Create a new rehearsal'
     fill_in 'rehearsal_date', :with =>  'Monday, Feburary 27'
     fill_in 'rehearsal_location', :with => 'Colonel Theatre'
-    fill_in 'rehearsal_description', :with => 'Rehearsed Act III'
     click_on 'Create Rehearsal'
 
     expect(current_path).to eq(company_production_rehearsal_path(@company.name, @production.title, @production.rehearsals.last))
     expect(page).to have_content("New rehearsal created!")
     expect(page).to have_content("Monday, Feburary 27")
     expect(page).to have_content('Colonel Theatre')
+  end
+
+  it 'Managers can add descriptions later' do
+    rehearsal = create(:rehearsal, production: @production)
+    visit company_production_rehearsal_path(@company.name, @production.title, rehearsal.id)
+    click_on 'Add Description'
+    fill_in 'rehearsal_description', :with => 'Rehearsed Act III'
+    click_on 'Update Rehearsal'
+
+    expect(current_path).to eq(company_production_rehearsal_path(@company.name, @production.title, rehearsal.id))
+    expect(page).to have_content('Update Description')
     expect(page).to have_content('Rehearsed Act III')
   end
 end

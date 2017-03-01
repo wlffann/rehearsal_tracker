@@ -1,12 +1,9 @@
 <%= form_for [@company, @production, @rehearsal], :html => {class: 'form'}  do |f| %>
   <%= f.label :date %>
-  <%= f.text_area :date %>
+  <%= f.text_field :date %>
 
   <%= f.label :location %>
-  <%= f.text_area :location %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.text_field :location %>
 
   <%= f.submit %>
 <% end %>
