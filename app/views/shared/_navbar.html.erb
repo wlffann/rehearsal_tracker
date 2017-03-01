@@ -1,6 +1,6 @@
 <nav>
   <ul>
-    <li><h1>RehearsalTracker</h1></li>
+    <li id='brand'><%= image_tag('billy_logo.png') %><h1>RehearsalTracker</h1></li>
     <li id="right">
       <% if current_user %>
         <%= link_to current_user.name, user_path(current_user)  %>
