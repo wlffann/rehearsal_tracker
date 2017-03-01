@@ -1,8 +1,18 @@
 <h2>Your Account</h2>
+<section class='user-content'>
+  <% if @user.image_url %>
+    <%= image_tag(@user.image_url) %>
+  <% end %>
+  <%= @user.name %>
+</section>
 
-<% if @user.image_url %>
-  <%= image_tag(@user.image_url) %>
-<% end %>
-<%= @user.name %>
+<section class='user-companies'>
+  <% @user.managements.each do |management| %>
+    <div class='company-card'>
+      <%= image_tag(management.company.logo_url) %>
+      <h4><%= link_to management.company.name, company_path(management.company.name) %></h4>
+    </div>
+  <% end %>
+</section>
 
-<%= link_to "Create a new company", new_company_path %>
+<%= link_to "Create a new company", new_company_path, class: 'orange-button' %>

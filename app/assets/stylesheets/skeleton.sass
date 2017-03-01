@@ -1,0 +1,92 @@
+.page-content
+  font-family: $body-font
+  position: relative
+  margin: 0 100px
+  color: $dark-grey
+
+  h2
+    font-size: 32px
+    font-weight: bold
+  h4
+    font-size: 24px
+  h5
+    font-size: 20px
+
+.card 
+  border: 2px solid $med-grey
+  border-radius: 12px
+  text-align: center
+  img
+    max-width: 100%
+    border-bottom: 2px solid $med-grey
+    overflow: hidden
+
+  a
+    color: $dark-grey
+    text-decoration: none
+    transition: .2s
+  a:hover
+    color: $red-orange
+  
+.company-card
+  @extend .card
+  max-width: 30%
+  margin: 10px
+
+.production-card
+  @extend .card
+  max-width: 30%
+  margin: 50px
+
+.notes-column
+  border: 2px solid $med-dark-grey
+  border-radius: 12px
+  background-color: teal
+  color: white
+  margin-top: 10px
+  max-width: 40%
+  text-align: center
+  h4
+    padding: 5px
+
+  .notes
+    background-color: $med-grey
+    color: $dark-grey
+    display: flex
+    flex-direction: column
+    align-items: center
+    border-radius: 0 0 12px 12px
+    min-height: 85vh
+
+    .note
+      border-radius: 12px
+      border: 1px solid $med-grey
+      padding: 5px 
+      text-align: left
+      margin: 20px 20px 0 20px
+      background-color: white 
+      min-width: 90%
+      
+      p
+        padding: 7px
+        border-bottom: 1px solid $med-grey
+        font-size: 17px
+      
+      .status
+        position: relative
+        left: 70%
+        color: white
+        border-radius: 12px 
+        padding: 2px
+        font-size: 17px
+        max-width: 70px 
+        text-align: center 
+        margin-top: 5px
+        h5
+          padding: 2px
+      .inactive
+        background-color: $med-red
+      .active
+        background-color: $red-orange
+      .completed
+        background-color: $teal

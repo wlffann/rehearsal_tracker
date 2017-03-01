@@ -1,14 +1,52 @@
-<%= image_tag(@production.logo_url) %>
+<main class='production-show'>
+  <section class='production-info'>
+    <%= image_tag(@production.logo_url) %>
 
-<h2><%= @production.title %></h2>
-<h4><%= @production.season %></h4>
-<%= @production.company.name %>
+    <h2><%= @production.title %></h2>
+    <h4><%= @production.season %></h4>
+    <h4><%= @production.company.name %></h4>
+    
+    <% if can? :update, @production %> 
+      <%= link_to "Create a new team", new_company_production_team_path(@production.company, @production), class: 'teal-button' %>
+    <% end %>
+    
+    <h5>Teams</h5>
+    <hr>
+    <ul>
+      <% @production.teams.each do |team| %>
+        <li><%= team.name %></li>
+      <% end %>
+    </ul>
+  </section>
 
-<% @production.teams.each do |team| %>
-  <%= team.name %>
-<% end %>
+  <section class='production-rehearsals'>
+    <% if can? :update, @production %> 
+      <%= link_to "Create a new rehearsal", new_company_production_rehearsal_path(@production.company, @production), class: 'orange-button' %>
+    <% end %>
+      <% @production.rehearsals.each do |rehearsal| %>
+        <div class='rehearsal'>
+          <%= link_to "#{rehearsal.date}, #{rehearsal.location}", company_production_rehearsal_path(@production.company.name, @production.title, rehearsal.id) %>
+        </div>
+      <% end %>
+  </section>
 
-<% if can? :update, @production %> 
-  <%= link_to "Create a new team", new_company_production_team_path(@production.company, @production) %>
-  <%= link_to "Create a new rehearsal", new_company_production_rehearsal_path(@production.company, @production) %>
-<% end %>
+  <section class='production-notes'>
+    <h4>Most Recent Notes</h4>
+    <div class='notes'>
+      <% @production.teams.each do |team| %>
+        <% if team.notes.inactive != 0 %>
+          <div class = 'team'>
+          <h4><%= team.name %></h4> 
+          <% team.notes.inactive.each do |note| %>    
+            <div class='note'>
+              <p><%= note.content %></p>
+              <div class="status <%= note.status %>"><%= note.status %></div>
+            </div>
+          <% end %>
+          </div>
+        <% end %>
+      <% end %>
+      </div>  
+    </div>
+  </section>
+</main>

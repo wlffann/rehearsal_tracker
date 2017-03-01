@@ -4,6 +4,7 @@ class Production < ApplicationRecord
   has_many :teams
   has_many :memberships, through: :teams
   has_many :company_managers, through: :company
+  has_many :notes, through: :rehearsals
 
   validates :title, presence: true
 

@@ -1,9 +1,9 @@
 class RehearsalsController < ApplicationController
-  load_and_authorize_resource params_method: :sanitize_rehearsal 
   def new
     @company = Company.find(params[:company_id])
     @production = @company.productions.where(id: params[:production_id]).first
-    @rehearsal = Rehearsal.new 
+    @rehearsal = @production.rehearsals.new 
+    authorize! :manage, @rehearsal 
   end
 
   def create
@@ -20,7 +20,7 @@ class RehearsalsController < ApplicationController
   end
   
   private
-  def sanitize_rehearsal
+  def rehearsal_params 
     params.require('rehearsal').permit('date', 'location', 'description')
   end
 end

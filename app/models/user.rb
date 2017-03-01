@@ -10,7 +10,9 @@ class User < ApplicationRecord
 
   def self.from_oauth(uid, profile)
     user = User.where(:uid => uid).first
-    unless user
+    if user
+      user
+    else
       User.create(uid: uid, 
                   name: profile[:name],
                   email: profile[:email],

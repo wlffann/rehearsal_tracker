@@ -1,9 +1,9 @@
 class TeamsController < ApplicationController 
- load_and_authorize_resource  
  def new
    @company = Company.find(params[:company_id])
    @production = @company.productions.find(params[:production_id])
-   @team = @production.teams.new
+   @team = @production.teams.new(id: 1)
+   authorize! :manage, @team
  end
 
   def create

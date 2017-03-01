@@ -1,5 +1,23 @@
-<%= @rehearsal.production.title %>
+<div class='rehearsal-show'>
+  <div class='rehearsal-info'>
+    <%= image_tag(@rehearsal.production.logo_url) %>
+    <h2><%= @rehearsal.production.title %></h2>
+    <h4><%= @rehearsal.date %></h4>
+    <h5><%= @rehearsal.location %></h5>
+    <p><%= @rehearsal.description %><p>
+  
+    <div class='teal-button'>New Note</div>
+  </div>
 
-<%= @rehearsal.date %>
-<%= @rehearsal.location %>
-<%= @rehearsal.description %>
+  <section class='notes-column'>
+    <h4>Notes</h4>
+    <div class='notes'>
+      <% @rehearsal.notes.each do |note| %>
+        <div class='note'> 
+          <p><%= note.content %></p>
+          <div class="status <%= note.status %>"><%= note.status %></div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,46 @@
+.production-show
+  display: flex
+  align-items: center
+  text-align: center
+  align-content: center
+  
+  .production-info
+    max-width: 30%
+    img
+      max-width: 100%
+      margin-bottom: 20px
+    h4 
+      margin-bottom: 20px
+
+  .production-rehearsals
+    margin: 0 auto     
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    align-items: center 
+    
+    .rehearsal
+      width: 100%
+      padding: 10px
+      border-radius: 12px
+      transition: all .2s cubic-bezier(0,1,1,1) 
+      a
+        color: $dark-grey
+        text-decoration: none
+    
+    .rehearsal:hover
+      background-color: $teal
+      a
+        color: white
+  .production-notes
+    @extend .notes-column
+    
+.team
+  margin-top: 10px
+  max-width: 90%
+  background-color: $light-grey
+  border-radius: 12px
+  .note
+    padding: 2px
+  h4 
+    margin-bottom: 0
