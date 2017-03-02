@@ -1,5 +1,6 @@
 <div class='rehearsal-show'>
   <div class='rehearsal-info'>
+    <%= link_to "Back to production", company_production_path(@rehearsal.production.company.name, @rehearsal.production.title), class: 'orange-button' %>
     <%= image_tag(@rehearsal.production.logo_url) %>
     <h2><%= @rehearsal.production.title %></h2>
     <h4><%= @rehearsal.date %></h4>
