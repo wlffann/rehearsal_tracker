@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   namespace :company, path: ':company_name' do
+    get '/:production_title/teams/:id', to: 'teams#show', as: 'production_team'
     get '/:production_title/:id', to: 'rehearsals#show', as: 'production_rehearsal'
     patch '/:prouction_title/:id', to: 'rehearsals#update', as: 'production_rehearsal_update'
     get '/:production_title', to: 'productions#show', as: 'production'

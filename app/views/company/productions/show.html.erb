@@ -14,7 +14,7 @@
     <hr>
     <ul>
       <% @production.teams.each do |team| %>
-        <li><%= team.name %></li>
+        <li><%= link_to team.name, company_production_team_path(@production.company.name, @production.title, team.id) %></li>
       <% end %>
     </ul>
   </section>

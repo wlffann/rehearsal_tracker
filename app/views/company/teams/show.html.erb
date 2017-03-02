@@ -1,0 +1,40 @@
+<h2 class='team-name'><%= @team.name %></h2>
+<div class='teams-show'>
+  <div class='notes-column'>
+    <h4>New Notes</h4>
+    <div class='notes'>
+      <% @team.notes.inactive.each do |note| %>
+        <div class='note'>
+          <p><%= note.content %></p>
+          <button name='start' class='teal-button' value="{'rehearsal_id': <%= note.rehearsal.id %>, 'note': { 'id': <%= note.id %>, 'status': 'complete'}">Start</button>
+          <div class='status <%= note.status %>'><%= note.status %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='notes-column'>
+    <h4>In Hand</h4>
+    <div class='notes'>
+      <% @team.notes.active.each do |note| %>
+        <div class='note'>
+          <p><%= note.content %></p>
+          <button name='complete' class='red-button' value="{'rehearsal_id': <%= note.rehearsal.id %>, 'note': { 'id': <%= note.id %>, 'status': 'complete'}">Complete</button>
+          <div class='status <%= note.status %>'><%= note.status %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='notes-column'>
+    <h4>Completed</h4>
+    <div class='notes'>
+      <% @team.notes.completed.each do |note| %>
+        <div class='note'>
+          <p><%= note.content %></p>
+          <div class='status <%= note.status %>'><%= note.status %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
