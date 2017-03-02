@@ -4,6 +4,10 @@ $(document).ready(function() {
   $('button#note').on('click', function() { 
     $('.modal').css({'display': 'block'}); 
   });
+  
+  $('button[name=close]').on('click', function() {
+    $('.modal').css({'display': 'none'});
+  });
 
   $('input[type=submit]').on('click', function() {
     $('.modal').css({'display': 'none'})
