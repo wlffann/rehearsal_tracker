@@ -26,7 +26,10 @@
       <% @rehearsal.notes.each do |note| %>
         <div class='note'> 
           <p><%= note.content %></p>
-          <div class="status <%= note.status %>"><%= note.status %></div>
+          <div class='details'>
+            <h5><%= note.team.name %></h5>
+            <div class="status <%= note.status %>"><%= note.status %></div>
+          </div>
         </div>
       <% end %>
     </div>

@@ -72,22 +72,26 @@
         padding: 7px
         border-bottom: 1px solid $med-grey
         font-size: 17px
-      
-      .status
-        position: relative
-        left: 70%
-        color: white
-        border-radius: 12px 
-        padding: 5px
-        font-size: 17px
-        max-width: 70px 
-        text-align: center 
-        margin-top: 5px
-        h5
-          padding: 2px
-      .inactive
-        background-color: $med-red
-      .active
-        background-color: $red-orange
-      .completed
-        background-color: $teal
+
+      .details
+        margin: 5px 0
+        display: flex
+        align-items: center
+        width: 100%
+        justify-content: space-between
+        .status
+          color: white
+          border-radius: 12px 
+          padding: 5px
+          font-size: 17px
+          max-width: 70px 
+          text-align: center 
+          margin-top: 5px
+          h5
+            padding: 2px
+        .inactive
+          background-color: $med-red
+        .active
+          background-color: $red-orange
+        .completed
+          background-color: $teal

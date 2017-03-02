@@ -6,8 +6,10 @@
       <% @team.notes.inactive.each do |note| %>
         <div class='note' draggable='true'>
           <p><%= note.content %></p>
-          <button name='start' class='teal-button' value='{"rehearsal_id": <%= note.rehearsal.id %>, "note": { "id": <%= note.id %>, "status": "complete"}}'>Start</button>
-          <div class='status <%= note.status %>'><%= note.status %></div>
+          <div class='details'>
+            <button name='start' class='teal-button' value='{"rehearsal_id": <%= note.rehearsal.id %>, "note": { "id": <%= note.id %>, "status": "complete"}}'>Start</button>
+            <div class='status <%= note.status %>'><%= note.status %></div>
+          </div>
         </div>
       <% end %>
     </div>
