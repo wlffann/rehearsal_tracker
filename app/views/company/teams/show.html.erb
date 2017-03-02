@@ -4,9 +4,9 @@
     <h4>New Notes</h4>
     <div class='notes'>
       <% @team.notes.inactive.each do |note| %>
-        <div class='note'>
+        <div class='note' draggable='true'>
           <p><%= note.content %></p>
-          <button name='start' class='teal-button' value="{'rehearsal_id': <%= note.rehearsal.id %>, 'note': { 'id': <%= note.id %>, 'status': 'complete'}">Start</button>
+          <button name='start' class='teal-button' value='{"rehearsal_id": <%= note.rehearsal.id %>, "note": { "id": <%= note.id %>, "status": "complete"}}'>Start</button>
           <div class='status <%= note.status %>'><%= note.status %></div>
         </div>
       <% end %>
@@ -19,7 +19,7 @@
       <% @team.notes.active.each do |note| %>
         <div class='note'>
           <p><%= note.content %></p>
-          <button name='complete' class='red-button' value="{'rehearsal_id': <%= note.rehearsal.id %>, 'note': { 'id': <%= note.id %>, 'status': 'complete'}">Complete</button>
+          <button name='complete' class='red-button' value='{"rehearsal_id": <%= note.rehearsal.id %>, "note": { "id": <%= note.id %>, "status": "complete"}}'>Complete</button>
           <div class='status <%= note.status %>'><%= note.status %></div>
         </div>
       <% end %>
