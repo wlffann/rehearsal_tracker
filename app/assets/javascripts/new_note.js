@@ -1,4 +1,4 @@
-var API = "http://localhost:3000" 
+var API = "http://rehearsaltracker.herokuapp.com/" 
 
 $(document).ready(function() { 
   $('button#note').on('click', function() { 
