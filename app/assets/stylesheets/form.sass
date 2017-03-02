@@ -15,15 +15,37 @@
     border-radius: 12px
 
   input[type=text]:focus
-    outline: none
+    outline: none 
     background-color: $light-grey
+    border: 1px solid $dark-grey
+    color: $dark-grey
+
+  textarea
+    font-size: 14px
+    border: none
+    border-radius: 12px
+    background-color: $med-grey
+    width: 100%
+    transition: .2s
+    color: white
+  textarea:focus
+    outline: none 
+    background-color: $light-grey
+    border: 1px solid $dark-grey
+    color: $dark-grey
+  
+  select
+    border: 1px sold $dark-grey
+    background-color: $med-grey
+    color: white
+    font-size: 17px
 
   input[type=submit]
     color: white
     font-size: 17px
     background-color: $teal
     padding: 7px 
-    width: 30%
+    min-width: 30%
     padding: 10px
     margin: 10px auto
     transition: .2s

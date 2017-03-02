@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   
   namespace :api do
     namespace :v1 do
-      resources :rehearsals, only: [:update]
+      resources :rehearsals, only: [:update] do
+        resources :notes, only: [:index, :create]
+      end
     end
   end
   

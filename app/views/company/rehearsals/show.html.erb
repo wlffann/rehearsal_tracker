@@ -30,3 +30,24 @@
     </div>
   </section>
 </div>
+
+<div class='modal'>
+  <div class="new-note">
+    <h4>Add A Note:</h4>
+    <form class='form'> 
+      <input type='hidden' name='note_rehearsal' value=<%= @rehearsal.id %>>      
+      <textarea type='textarea' name='note_content'></textarea>
+      
+      <label>Team</label>
+      <select id='note_team_id'>
+        <option></option>
+        <% @rehearsal.production.teams.each do |team| %>
+          <option value=<%= team.id %>><%= team.name %></option>
+        <% end %>
+      </select>
+      
+      <input type='submit' value='Create Note'>
+    
+    </form>
+  </div>
+</div>

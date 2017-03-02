@@ -1,6 +1,13 @@
-<% if current_user %>
-  <%= link_to "Go to my account", user_path(current_user), class: 'welcome-button' %>
-<% else %>
-  <h4>Log in with Google to try it out!</h4>
-  <%= link_to "Get Started", "/auth/google_oauth2", class: 'welcome-button' %>
-<% end %>
+<main class='home'>
+  <section class='welcome'>
+    <% if current_user %>
+      <%= link_to "Go to my account", user_path(current_user), class: 'welcome-button' %>
+    <% else %>
+      <h4>Log in with Google to try it out!</h4>
+      <%= link_to "Get Started", "/auth/google_oauth2", class: 'welcome-button' %>
+    <% end %>
+  </section>
+
+  <section class='image'>
+  </section>
+</main>
