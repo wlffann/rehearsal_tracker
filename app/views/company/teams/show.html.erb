@@ -7,7 +7,7 @@
         <div class='note' draggable='true'>
           <p><%= note.content %></p>
           <div class='details'>
-            <button name='start' class='teal-button' value='{"rehearsal_id": <%= note.rehearsal.id %>, "note": { "id": <%= note.id %>, "status": "complete"}}'>Start</button>
+            <button name='start' class='teal-button update_note' value='{"note": { "id": <%= note.id %>, "status": "active"}}'>Start</button>
             <div class='status <%= note.status %>'><%= note.status %></div>
           </div>
         </div>
@@ -21,8 +21,10 @@
       <% @team.notes.active.each do |note| %>
         <div class='note'>
           <p><%= note.content %></p>
-          <button name='complete' class='red-button' value='{"rehearsal_id": <%= note.rehearsal.id %>, "note": { "id": <%= note.id %>, "status": "complete"}}'>Complete</button>
-          <div class='status <%= note.status %>'><%= note.status %></div>
+          <div class='details'>
+            <button name='complete' class='red-button update_note' value='{"note": { "id": <%= note.id %>, "status": "completed"}}'>Complete</button>
+            <div class='status <%= note.status %>'><%= note.status %></div>
+          </div>
         </div>
       <% end %>
     </div>
@@ -34,7 +36,9 @@
       <% @team.notes.completed.each do |note| %>
         <div class='note'>
           <p><%= note.content %></p>
-          <div class='status <%= note.status %>'><%= note.status %></div>
+          <div class='details'>
+            <div class='status <%= note.status %>'><%= note.status.capitalize %></div>
+          </div>
         </div>
       <% end %>
     </div>

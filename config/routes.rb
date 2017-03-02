@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:show, :new, :create]
-  
+  resources :notes, only: [:update]
+
   resources :companies, only: [:new, :create] do
     resources :productions, only: [:new, :create] do
       resources :rehearsals, only: [:new, :create]
