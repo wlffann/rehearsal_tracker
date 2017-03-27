@@ -10,5 +10,5 @@ An agile project tracker designed for the theatrical workplace. Rehearsal Tracke
   * Create teams for the different departments in your company.
   * Add rehearsals with notes that ping your teams as they receive new tasks and information.
 
-## Authors
-  * Annie Wolff - [LinkedIn](https://www.linkedin.com/in/annie-wolff/)  
+### Authors
+Annie Wolff - [LinkedIn](https://www.linkedin.com/in/annie-wolff/)  
