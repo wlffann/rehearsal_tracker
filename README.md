@@ -1,24 +1,5 @@
-# README
+# Rehearsal Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Production Url](https://rehearsaltracker.herokuapp.com/)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+An agile project tracker designed for the theatrical workplace. Rehearsal Tracker is built around the rehearsal report workflow and provides a manager the ability to give notes and automatically pass them down to the relevant team. 
